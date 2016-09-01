@@ -1,7 +1,9 @@
 package br.edu.welder.aulacinco;
 
+import android.net.wifi.p2p.WifiP2pManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -20,6 +22,14 @@ public class MainActivity extends AppCompatActivity {
         mensagemIn = (TextView) findViewById(R.id.editTexto);
         mensagemOut = (TextView) findViewById(R.id.textShowMessage);
 
+        enviar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (! mensagemIn.getText().toString().equals("")) {
+                    mensagemOut.setText(mensagemIn.getText());
+                }
+            }
+        });
 
     }
 }
